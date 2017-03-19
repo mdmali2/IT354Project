@@ -1,6 +1,5 @@
 <?php
-require_once 'functions.php';
-
+require_once 'header.php';
 if(isset($_POST['submit']))
 {
     $msg = "";
@@ -29,6 +28,7 @@ if(isset($_POST['submit']))
       if(move_uploaded_file($_FILES['image']['tmp_name'], $target))
       {
         $msg = "Image uploaded successfully";
+        die("<script type='text/javascript'>window.top.location='administrator.php?view=$user';</script>");
       }
       else {
         $msg = "Image uploaded unsuccessfully";
