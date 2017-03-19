@@ -1,4 +1,4 @@
-<?php 
+<?php
   require_once 'header.php';
 
   echo <<<_END
@@ -33,7 +33,13 @@ _END;
   }
 
   echo <<<_END
-    <form method='post' action='signup.php'>$error
+    <form method='post' class='form-login form login-form' action='signup.php'>$error
+    <select>
+        <option value="Hospice Hearts">Volvo</option>
+        <option value="Chicago Resuce">Saab</option>
+        <option value="Border Collie Rehome">Mercedes</option>
+        <option value="Center for Senior Cats">Audi</option>
+    </select>
     <span class='fieldname'>Username</span>
     <input type='text' maxlength='16' name='user' value='$user'
       onBlur='checkUser(this)'><span id='info'></span><br>

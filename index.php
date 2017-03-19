@@ -1,6 +1,5 @@
-<?php 
+<?php
   require_once 'header.php';
-  echo "<br><span class='main'>Welcome to $appname,";
   if ($loggedin)
   {
   $result = queryMySQL("SELECT admin FROM members
@@ -61,10 +60,10 @@ $error = $user = $pass = "";
 
   echo <<<_END
 	<div class="login-page">
-		<form method='post' class="form login-form" action='index.php'> $error
+		<form method='post' class = "form-login form login-form" action='index.php'> $error
 		<input type='text' maxlength='16' name='user' placeholder="username" value='$user'><br>
 		<input type='password' maxlength='16' name='pass' placeholder="password" type="password" value='$pass'>
-		
+
 _END;
 ?>
   <button>login</button>

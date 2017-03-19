@@ -1,4 +1,4 @@
-<?php 
+<?php
   $dbhost  = 'localhost';    // Unlikely to require changing
   $dbname  = 'adoptme';   // Modify these...
   $dbuser  = 'root';   // ...variables according
@@ -54,4 +54,31 @@
       echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
     }
   }
+  function showShelter($user)
+  {
+$result = "";
+$result = queryMysql("SELECT shelter FROM staff WHERE user='$user'");
+if ($result->num_rows > 0) {
+// output data of each row
+
+while($row = $result->fetch_assoc()) {
+echo "" . $row['shelter'].  "";
+
+  }
+}
+}
+function populate($variable, $database)
+{
+
+  $result = "";
+  $result = queryMysql("SELECT $variable FROM $database");
+  if ($result->num_rows > 0) {
+  // output data of each row
+  
+  while($row = $result->fetch_assoc()) {
+  echo '<option value="' . $row[$variable].  '">'. $row[$variable]. '</option>';
+
+}
+}
+}
 ?>
