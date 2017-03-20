@@ -69,6 +69,7 @@
             </button>
             <a class="navbar-brand active" href="#">Adopt Me</a>
             <a class="navbar-brand" href="#choice" data-toggle="modal">Upload Pet</a>
+            <a class="navbar-brand" href="#createAdmin" data-toggle="modal">Add Volunteer</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -81,6 +82,31 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
+<div class="modal fade" data-backdrop="false" id="createAdmin" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter the username of the person you would like to promote?</h4>
+            </div>
+            <div class="modal-body">
+            <form method='post' enctype="multipart/form-data" onsubmit="return checkall()" action="createadmin.php" class="form">
+                <input type="input" readonly value="<?php
+                showShelter($user);
+                ?>" name="shelter">
+                </input>
+                <input type="input" placeholder="Name" name="name" id="userName" onkeyup="checkname();"><span id="name_status"></span></input>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="submit" class="btn btn-default"></input>
+            </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" data-backdrop="false" id="choice" role="dialog">
     <div class="modal-dialog">
 
@@ -185,3 +211,45 @@
     </div>
 </nav>
 <?php endif; ?>
+<script>
+function checkall()
+{
+ var namehtml=document.getElementById("name_status").innerHTML;
+
+ if((namehtml)=="Username not found" || (namehtml)=="User is already apart of another shelter")
+ {
+  return false;
+ }
+ else
+ {
+  return true;
+ }
+}
+function checkname()
+{
+ var name=document.getElementById( "userName" ).value;
+
+ if(name)
+ {
+   var userValidate;
+  $.ajax({
+  type: 'post',
+  url: 'createadmin.php',
+  data: {
+   user_name:name,
+  },
+  success: function (response) {
+   $( '#name_status' ).html(response);
+   if(response=="Username not found")
+   {
+      return false;
+   }
+   else
+   {
+     return true;
+   }
+  }
+  });
+ }
+}
+</script>
