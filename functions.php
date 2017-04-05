@@ -74,11 +74,12 @@ function populate($variable, $database)
   $result = queryMysql("SELECT $variable FROM $database");
   if ($result->num_rows > 0) {
   // output data of each row
-  
+
   while($row = $result->fetch_assoc()) {
   echo '<option value="' . $row[$variable].  '">'. $row[$variable]. '</option>';
 
 }
 }
 }
+
 ?>

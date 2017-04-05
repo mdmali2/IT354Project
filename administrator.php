@@ -24,13 +24,21 @@
 
     while($row = mysqli_fetch_array($catResult))
     {
-
       echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
-      echo "<div id='". $row['name']."'>";
-      echo "<figure>";
+      echo "<div id='". $row['id']."' value ='cat'>";
+      echo "<figure class='img-overlay'>";
+      echo "<div class='img-overlay'>";
       echo "<img class='resize' src='images/" . $row['image'] . "' >";
-      echo "<figcaption>" . $row['name'] . "</figcaption>";
-      echo "</figcaption>";
+      if($row['declawed'] == "yes")
+      {
+        echo "<div class='overlay'><label class='fa fa-check fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+      }
+      else {
+        echo "<div class='overlay'><label class='fa fa-times fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+      }
+      echo "</div>";
+      echo "<figcaption>" . $row['name'] . " <a href='delete.php?id=". $row['id']."&animalType=cat' class='fa fa-minus-circle'></a></figcaption>";
+      echo "</figure>";
       echo "</div>";
       echo '</div>';
     }
@@ -38,11 +46,14 @@
   while($row = mysqli_fetch_array($dogResult))
   {
     echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
-    echo "<div id='". $row['name']."'>";
-    echo "<figure>";
+    echo "<div id='". $row['id']."' value ='dog'>";
+    echo "<figure class='img-overlay'>";
+    echo "<div class='img-overlay'>";
     echo "<img class='resize' src='images/" . $row['image'] . "' >";
-    echo "<figcaption>" . $row['name'] . "</figcaption>";
-    echo "</figcaption>";
+    echo "<div class='overlay'><label class='fa fa-paw fa-2x text'> " . $row['breed'] . "</label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+    echo "</div>";
+    echo "<figcaption>" . $row['name'] . " <a href='delete.php?id=". $row['id']."&animalType=dog' class='fa fa-minus-circle'></a></figcaption>";
+    echo "</figure>";
     echo "</div>";
     echo '</div>';
   }

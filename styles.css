@@ -172,7 +172,8 @@ figure img {
 }
 
 figcaption {
-    display: table-caption;
+    display: inline-block !important;;
+
     caption-side: bottom;
     background: #fff;
     color: #5e5e5e;
@@ -181,3 +182,39 @@ figcaption {
     font-size: 18px;
     line-height: 20px;
 }​
+.img-overlay img {
+  margin: 0;
+  opacity: 0.5;
+  display: block;
+}
+.img-overlay:hover .overlay {
+  opacity: 9;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 1s ease;
+  background-color: lightgreen;
+}
+.text {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  padding-top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.img-overlay
+{
+    position: relative;
+    float: left;
+}
+.fa-minus-circle {color:red;}

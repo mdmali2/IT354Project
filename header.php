@@ -23,6 +23,7 @@
 	   "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>" .
      "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>" .
   "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>" .
+  "<script src='https://use.fontawesome.com/abd4dde156.js'></script>".
   "<script
   src='https://code.jquery.com/jquery-3.2.0.min.js'
   integrity='sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I='
@@ -147,7 +148,16 @@
                     </input>
                     <input type="input" placeholder="Name" name="name"></input>
                     <input type="input" placeholder="Description" name="description"></input>
+                    <input type="input" placeholder="Adoption Fee" name="fee"></input>
+                    <p>Declawed?</p>
+                    <label class="choice">
+                    <input type="radio"checked="checked" name="declawed" value="yes" /> Yes
+                    </label>
+                    <label class="choice">
+                    <input type="radio" name="declawed" value="no" /> No
+                    </label>
                     <input type="file" name="image">
+
             </div>
             <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-default"></input>
@@ -190,6 +200,7 @@
                     </select>
                     <input type="input" placeholder="Name" name="name"></input>
                     <input type="input" placeholder="Description" name="description"></input>
+                    <input type="input" placeholder="Adoption Fee" name="fee"></input>
                     <input type="file" name="image">
             </div>
             <div class="modal-footer">
