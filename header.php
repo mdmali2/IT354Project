@@ -46,6 +46,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Favorites</a>
                 </li>
+                <li><a href="dogQuiz.php">Dog Quiz</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="./">Profile <span class="sr-only">(current)</span></a>
