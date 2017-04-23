@@ -15,7 +15,7 @@
         echo "<div id='". $rowCatDB['id']."' value ='cat'>";
         echo "<figure class='img-overlay'>";
         echo "<a href='petProfile.php?id=" . $rowCatDB['id'] . "&type=cat&image=" . $rowCatDB['image'] . "&name=". $rowCatDB['name'] . "&shelter=". $rowCatDB['shelter']. "&description=" . $rowCatDB['description'] . "&declawed=" . $rowCatDB['declawed'] .
-        "&gender=" . $row['gender']
+        "&gender=" . $rowCatDB['gender']
         . "&age=" . $rowCatDB['age'] . "'><div class='img-overlay'>";
         echo "<img class='resize' src='images/" . $rowCatDB['image'] . "' >";
         if($rowCatDB['declawed'] == "yes")
