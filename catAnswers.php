@@ -30,7 +30,7 @@
             echo $age2 . ' ' . "<h4>$catAge2</h4>";
             echo $gender . ' ' . "<h4>$catGender</h4>";
 
-            echo"<a href='user.php?catDeclawed=" . $catDeclawed ."&catAge1=" . $catAge1 ."&catAge2=" . $catAge2 ."&catGender=" . $catGender ."'>CLick here to see your pets!</a>";
+            echo"<a href='user.php?catDeclawed=" . $catDeclawed ."&type=cat&catAge1=" . $catAge1 ."&catAge2=" . $catAge2 ."&catGender=" . $catGender ."'>CLick here to see your pets!</a>";
 
 
       ?>

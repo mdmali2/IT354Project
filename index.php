@@ -51,7 +51,7 @@ $error = $user = $pass = "";
         }
         else {
 			$_SESSION['admin'] = 0;
-          die("<script type='text/javascript'>window.top.location='user.php?view=$user';</script>");
+          die("<script type='text/javascript'>window.top.location='quiz.php?view=$user';</script>");
         }
 
       }

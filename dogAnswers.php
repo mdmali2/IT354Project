@@ -32,7 +32,7 @@
             echo $age2 . ' ' . "<h4>$dogAge2</h4>";
             echo $gender . ' ' . "<h4>$dogGender</h4>";
 
-            echo"<a href='user.php?dogSize=" . $dogSize ."&dogAge1=" . $dogAge1 ."&dogAge2=" . $dogAge2 ."&dogGender=" . $dogGender ."'>CLick here to see your pets!</a>";
+            echo"<a href='user.php?dogSize=" . $dogSize ."&type=dog&dogAge1=" . $dogAge1 ."&dogAge2=" . $dogAge2 ."&dogGender=" . $dogGender ."'>CLick here to see your pets!</a>";
 
       ?>
 
