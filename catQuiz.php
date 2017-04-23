@@ -7,33 +7,23 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Dog Quiz</title>
+    <title>Cat Quiz</title>
   </head>
   <body>
-    <h3>This is the Dog Quiz</h3>
-    <form class='form-login' action="dogAnswers.php" method="post">
+    <h3>This is the Cat Quiz</h3>
+    <form class='form-login' action="catAnswers.php" method="post">
       <ol>
 
         <li>
-          <h3>What Size Dog?</h3>
+          <h3>Does your Cat need to be Declawed?</h3>
           <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-A" value="Small" />
-          <label for="question-1-answers-A">A) Small</label>
+          <input type="radio" name="question-1-answers" id="question-1-answers-A" value="Yes" />
+          <label for="question-1-answers-A">A) Yes</label>
           </div>
 
           <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-B" value="Medium" />
-          <label for="question-1-answers-B">B) Medium</label>
-          </div>
-
-          <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-C" value="Large" />
-          <label for="question-1-answers-C">C) Large</label>
-          </div>
-
-          <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-D" value="X-Large" />
-          <label for="question-1-answers-D">D) X-Large</label>
+          <input type="radio" name="question-1-answers" id="question-1-answers-B" value="No" />
+          <label for="question-1-answers-B">B) No</label>
           </div>
         </li>
 

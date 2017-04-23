@@ -7,11 +7,38 @@
   if (isset($_GET['view'])) $view = sanitizeString($_GET['view']);
   else                      $view = $user;
 
-          $catResult = queryMysql("SELECT * FROM catDB");
+  $isCat = sanitizeString($_GET['catDeclawed']);
+  $isDog = sanitizeString($_GET['dogSize']);
 
-          $dogResult = queryMysql("SELECT * FROM dogDB");
+  if(isset($isCat))
+  {
+        $catDeclawed = sanitizeString($_GET['catDeclawed']);
+        $catAge1 = sanitizeString($_GET['catAge1']);
+        $catAge2 = sanitizeString($_GET['catAge2']);
+        $catGender = sanitizeString($_GET['catGender']);
+        if(($catGender=="*")){
 
+          $catResult = queryMysql("SELECT * FROM catDB WHERE declawed = '".$catDeclawed."' and age <= '".$catAge2."'");
+          }
+          else {
+            $catResult = queryMysql("SELECT * FROM catDB WHERE declawed = '".$catDeclawed."' and age <= '".$catAge2."'and gender = '".$catGender."'");
+          }
+  }
 
+    if(isset($isDog))
+    {
+          $dogSize = sanitizeString($_GET['dogSize']);
+          $dogAge1 = sanitizeString($_GET['dogAge1']);
+          $dogAge2 = sanitizeString($_GET['dogAge2']);
+          $dogGender = sanitizeString($_GET['dogGender']);
+          if(($dogGender=="*")){
+
+            $dogResult = queryMysql("SELECT * FROM dogDB WHERE size = '".$dogSize."' and age <= '".$dogAge2."'");
+        }
+        else {
+          $dogResult = queryMysql("SELECT * FROM dogDB WHERE size = '".$dogSize."' and age <= '".$dogAge2."'and gender = '".$dogGender."'");
+        }
+    }
       while($row = mysqli_fetch_array($catResult))
       {
         echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
