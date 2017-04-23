@@ -49,7 +49,7 @@
     echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
     echo "<div id='". $row['id']."' value ='dog'>";
     echo "<figure class='img-overlay'>";
-          echo "<a href='petProfile.php?id=" . $row['id'] . "&type=dog&image=" . $row['image'] . "&name=" . $row['name'] . "&breed=" . $row['breed'] . "&shelter=" . $row['shelter'] . "&description=" . $row['description'] .
+    echo "<a href='petProfile.php?id=" . $row['id'] . "&type=dog&image=" . $row['image'] . "&name=" . $row['name'] . "&breed=" . $row['breed'] . "&shelter=" . $row['shelter'] . "&description=" . $row['description'] .
            "&fee=" . $row['fee']  . "&gender=" . $row['gender'] . "&age=" . $row['age'] . "'><div class='img-overlay'>";
     echo "<img class='resize' src='images/" . $row['image'] . "' >";
     echo "<div class='overlay'><label class='fa fa-paw fa-2x text'> " . $row['breed'] . "</label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
