@@ -11,12 +11,14 @@ if(isset($_POST['submit']))
     $shelter = sanitizeString($_POST['shelter']);
     $description = sanitizeString($_POST['description']);
     $fee = sanitizeString($_POST['fee']);
+    $age = sanitizeString($_POST['age']);
+    $gender = sanitizeString($_POST['gender']);
     if($animal =='Cat')
       {
         $declawed = sanitizeString($_POST['declawed']);
         $temp = explode(".", $_FILES['image']['name']);
         $newfilename = round(microtime(true)) . '.' . end($temp);
-        $result = queryMysql("INSERT INTO catDB (image, name, shelter, description, declawed, fee) VALUES('$newfilename', '$name', '$shelter', '$description', '$declawed', '$fee')");
+        $result = queryMysql("INSERT INTO catDB (image, name, shelter, description, declawed, fee, age, gender) VALUES('$newfilename', '$name', '$shelter', '$description', '$declawed', '$fee', '$age', '$gender')");
       }
       else if ($animal =='Dog')
       {
@@ -24,7 +26,7 @@ if(isset($_POST['submit']))
         $newfilename = round(microtime(true)) . '.' . end($temp);
         $size = sanitizeString($_POST['size']);
         $breed = sanitizeString($_POST['breed']);
-        $result = queryMysql("INSERT INTO dogDB (image, name, shelter, description, size, breed, fee) VALUES('$newfilename', '$name','$shelter', '$description','$size','$breed','$fee')");
+        $result = queryMysql("INSERT INTO dogDB (image, name, shelter, description, size, breed, fee, age, gender) VALUES('$newfilename', '$name','$shelter', '$description','$size','$breed','$fee', '$age', '$gender')");
       }
       else
       {

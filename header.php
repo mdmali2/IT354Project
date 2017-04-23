@@ -156,6 +156,12 @@
                     <label class="choice">
                     <input type="radio" name="declawed" value="no" /> No
                     </label>
+                    <select name="gender">
+                        <option selected="selected" disabled="disabled" value="Choose here">Choose here</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                    <input type="input" placeholder="Age" name="age"></input>
                     <input type="file" name="image">
 
             </div>
@@ -201,6 +207,12 @@
                     <input type="input" placeholder="Name" name="name"></input>
                     <input type="input" placeholder="Description" name="description"></input>
                     <input type="input" placeholder="Adoption Fee" name="fee"></input>
+                    <select name="gender">
+                        <option selected="selected" disabled="disabled" value="Choose here">Choose here</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                    <input type="input" placeholder="Age" name="age"></input>
                     <input type="file" name="image">
             </div>
             <div class="modal-footer">
