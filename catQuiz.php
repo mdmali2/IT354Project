@@ -22,7 +22,7 @@
           </div>
 
           <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-B" value="No" />
+          <input type="radio" name="question-1-answers" id="question-1-answers-B" value="No" checked="true" />
           <label for="question-1-answers-B">B) No</label>
           </div>
         </li>
@@ -30,11 +30,11 @@
         <li>
         <h3>What Age Range?</h3>
         <div>
-        <input type="text" name="question-2-answers1" id="question-2-answers-A" value="Enter Min Age" />
+        <input type="text" name="question-2-answers1" id="question-2-answers-A" placeholder="Enter Min Age" required />
         </div>
 
         <div>
-        <input type="text" name="question-2-answers2" id="question-2-answers-B" value="Enter Max Age" />
+        <input type="text" name="question-2-answers2" id="question-2-answers-B" placeholder="Enter Max Age" required />
         </div>
       </li>
 
@@ -51,7 +51,7 @@
           </div>
 
           <div>
-          <input type="radio" name="question-3-answers" id="question-3-answers-C" value="*" />
+          <input type="radio" name="question-3-answers" id="question-3-answers-C" value="*" checked="true" />
           <label for="question-3-answers-C">C) Either</label>
           </div>
         </li>

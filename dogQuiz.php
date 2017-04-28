@@ -11,13 +11,13 @@
   </head>
   <body>
     <h3>This is the Dog Quiz</h3>
-    <form class='form-login' action="dogAnswers.php" method="post">
+    <form name="dogQuiz" class='form-login' action="dogAnswers.php" method="post">
       <ol>
 
         <li>
           <h3>What Size Dog?</h3>
           <div>
-          <input type="radio" name="question-1-answers" id="question-1-answers-A" value="Small" />
+          <input type="radio" name="question-1-answers" id="question-1-answers-A" value="Small" checked="true"/>
           <label for="question-1-answers-A">A) Small</label>
           </div>
 
@@ -40,11 +40,11 @@
         <li>
         <h3>What Age Range?</h3>
         <div>
-        <input type="text" name="question-2-answers1" id="question-2-answers-A" value="Enter Min Age" />
+        <input type="text" name="question-2-answers1" id="question-2-answers-A" placeholder="Enter Min Age" required/>
         </div>
 
         <div>
-        <input type="text" name="question-2-answers2" id="question-2-answers-B" value="Enter Max Age" />
+        <input type="text" name="question-2-answers2" id="question-2-answers-B" placeholder="Enter Max Age" required/>
         </div>
       </li>
 
@@ -61,13 +61,13 @@
           </div>
 
           <div>
-          <input type="radio" name="question-3-answers" id="question-3-answers-C" value="*" />
+          <input type="radio" name="question-3-answers" id="question-3-answers-C" value="*" checked="true" />
           <label for="question-3-answers-C">C) Either</label>
           </div>
         </li>
 
       </ol>
-      <input type="submit" value="Submit Quiz">
+      <input id="submit" value="Submit Quiz" name="submit" type="submit"/>
     </form>
   </body>
 </html>
