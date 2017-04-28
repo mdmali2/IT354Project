@@ -9,7 +9,10 @@
 
 
 
-  if(($_GET['type']) == 'cat')
+
+if(isset($_GET['type']))
+{
+  if (($_GET['type']) == 'cat')
   {
         $catDeclawed = sanitizeString($_GET['catDeclawed']);
         $catAge1 = sanitizeString($_GET['catAge1']);
@@ -55,6 +58,7 @@
 
             $dogResult = queryMysql("SELECT * FROM dogDB WHERE size = '".$dogSize."' and age <= '".$dogAge2."'");
         }
+
         else {
           $dogResult = queryMysql("SELECT * FROM dogDB WHERE size = '".$dogSize."' and age <= '".$dogAge2."'and gender = '".$dogGender."'");
         }
@@ -73,6 +77,31 @@
           echo "</div>";
           echo '</div>';
         }
+    }
+  }
+    else {
+      $catResult = queryMysql("SELECT * FROM catDB");
+      while($row = mysqli_fetch_array($catResult))
+      {
+        echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
+        echo "<div id='". $row['id']."' value ='cat'>";
+        echo "<figure class='img-overlay'>";
+        echo "<a href='petProfile.php?id=" . $row['id'] . "&type=cat&image=" . $row['image'] . "&name=". $row['name'] . "&shelter=". $row['shelter']. "&description=" . $row['description'] . "&declawed=" . $row['declawed'] . "&gender=" . $row['gender']
+        . "&age=" . $row['age'] . "'><div class='img-overlay'>";
+        echo "<img class='resize' src='images/" . $row['image'] . "' >";
+        if($row['declawed'] == "yes")
+        {
+          echo "<div class='overlay'><label class='fa fa-check fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+        }
+        else {
+          echo "<div class='overlay'><label class='fa fa-times fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+        }
+        echo "</div></a>";
+        echo "<figcaption>" . $row['name'] . "</figcaption><a href='favorite.php?id=". $row['id']."&user=" .$user . "' style='color:green;' class='fa fa-heart-o fa-2x'></a>";
+        echo "</figure>";
+        echo "</div>";
+        echo '</div>';
+      }
     }
 
     die("</div></body></html>");

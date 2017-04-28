@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand active" href="#">Adopt Me</a>
+            <a class="navbar-brand active" href="index.php">Adopt Me</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -76,7 +76,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./">Profile <span class="sr-only">(current)</span></a>
+
                 </li>
                 <li><a href="logout.php">Sign out</a>
                 </li>
@@ -142,15 +142,21 @@
                 <h4 class="modal-title">Please fill out the form</h4>
             </div>
             <div class="modal-body">
-                <form method='post' enctype="multipart/form-data" action="upload.php" class="form">
+                <form method='post' name="formCat" enctype="multipart/form-data" action="upload.php" onsubmit="return validateCat()" class="form">
                     <input type="input" readonly placeholder="Cat" value="Cat" name="animal"></input>
                     <input type="input" readonly value="<?php
                     showShelter($user);
                     ?>" name="shelter">
                     </input>
                     <input type="input" placeholder="Name" name="name"></input>
+                      <label id="nameErrorNum" style="display:none; color:red">Name must be under 16 characters</label>
+                      <label id="nameErrorEmpty" style="display:none; color:red">Name is empty</label>
                     <input type="input" placeholder="Description" name="description"></input>
+                      <label id="descriptionErrorNum" style="display:none; color:red">Description must be a 110 characters or less</label>
+                      <label id="descriptionErrorEmpty" style="display:none; color:red">Description is empty</label>
                     <input type="input" placeholder="Adoption Fee" name="fee"></input>
+                      <label id="feeErrorNum" style="display:none;color:red">Fee must be a number</label>
+                      <label id="feeErrorEmpty" style="display:none;color:red">Fee is empty</label>
                     <p>Declawed?</p>
                     <label class="choice">
                     <input type="radio"checked="checked" name="declawed" value="yes" /> Yes
@@ -163,12 +169,15 @@
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                     </select>
+                    <label id="genderErrorEmpty" style="display:none;color:red">Please select a gender</label>
                     <input type="input" placeholder="Age" name="age"></input>
-                    <input type="file" name="image">
+                      <label id="ageErrorNum" style="display:none;color:red">Age must be a number</label>
+                      <label id="ageErrorEmpty" style="display:none;color:red">Age is empty</label>
+                    <input type="file" accept="image/*" name="image">
 
             </div>
             <div class="modal-footer">
-                    <input type="submit" name="submit" class="btn btn-default"></input>
+                    <input type="submit" value="submit" name="submit" class="btn btn-default"></input>
                 </form>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -220,7 +229,7 @@
             <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-default"></input>
                 </form>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -276,5 +285,66 @@ function checkname()
   }
   });
  }
+}
+function validateCat() {
+    var name = document.forms["formCat"]["name"].value;
+    var description = document.forms["formCat"]["description"].value;
+    var fee = document.forms["formCat"]["fee"].value;
+    var age = document.forms["formCat"]["age"].value;
+    var gender = document.forms["formCat"]["gender"].value;
+    var file = document.forms["formCat"]["image"].value;
+    var returnView = 0;
+    if (name == "" || name.length > 16) {
+      if (name.length > 16){
+
+        $("#nameErrorNum").toggle();
+        returnView++;
+      }
+      else if (name == "") {
+        $("#nameErrorEmpty").toggle();
+        returnView++;
+      }
+    }
+    if (description == "" || description.length > 110) {
+      if (description.length > 110){
+        $("descriptionErrorNum").toggle();
+        returnView++;
+      }
+      else if (description == "") {
+        $("#descriptionErrorEmpty").toggle();
+        returnView++;
+      }
+    }
+    if (fee == "" || isNaN(fee)) {
+      if (isNaN(fee)){
+        $("feeErrorNum").toggle();
+        returnView++;
+      }
+      else if (fee == "") {
+        $("#feeErrorEmpty").toggle();
+        returnView++;
+      }
+    }
+    if (age == "" || isNaN(age)) {
+      if (isNaN(age)){
+        $("ageErrorNum").toggle();
+        returnView++;
+      }
+      else if (age == "") {
+        $("#ageErrorEmpty").toggle();
+        returnView++;
+      }
+    }
+    if (gender == "Choose here") {
+        $("#genderErrorEmpty").toggle();
+        returnView++;
+    }
+    if(returnView == 0)
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
 }
 </script>
