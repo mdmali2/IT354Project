@@ -2,7 +2,7 @@
   $dbhost  = 'localhost';    // Unlikely to require changing
   $dbname  = 'adoptme';   // Modify these...
   $dbuser  = 'root';   // ...variables according
-  $dbpass  = 'root';   // ...to your installation
+  $dbpass  = '';   // ...to your installation
   $appname = "Adopt Me"; // ...and preference
 
   $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);

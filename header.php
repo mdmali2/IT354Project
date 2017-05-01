@@ -194,7 +194,7 @@
                 <h4 class="modal-title">Please fill out the form</h4>
             </div>
             <div class="modal-body">
-                <form method='post' class="form"  action="upload.php" enctype="multipart/form-data">
+                <form method='post' class="form"  name="formDog" action="upload.php" onsubmit="return validateDog()" enctype="multipart/form-data">
                     <input type="input" readonly placeholder="Dog" value="Dog" name="animal"></input>
                     <input type="input" readonly value="<?php
                       showShelter($user);
@@ -203,10 +203,12 @@
                     <select name="breed">
                         <option selected="selected" disabled="disabled" value="Choose here">Choose here</option>
                         <option value="Afghan Hound"> Afghan Hound</option>
-                        <option value="Airedale Terrier">Airedale Terrier</option>
-                        <option value="Akita">Akita</option>
                         <option value="Alaskan Malamute">Alaskan Malamute</option>
+                        <option value="Border Collie">Border Collie</option>
+                        <option value="German Shepherd">German Shepherd</option>
+                        <option value="Skye Terrier">Skye Terrier</option>
                     </select>
+                    <label id="breedErrorEmpty" style="display:none;color:red">Please select a breed</label>
                     <select name="size">
                         <option selected="selected" disabled="disabled" value="Choose here">Choose here</option>
                         <option value="X-Small">X-Small</option>
@@ -215,16 +217,26 @@
                         <option value="Large">Large</option>
                         <option value="X-Large">X-Large</option>
                     </select>
+                      <label id="sizeErrorEmpty" style="display:none;color:red">Please select a size</label>
                     <input type="input" placeholder="Name" name="name"></input>
+                      <label id="nameDErrorNum" style="display:none; color:red">Name must be under 16 characters</label>
+                      <label id="nameDErrorEmpty" style="display:none; color:red">Name is empty</label>
                     <input type="input" placeholder="Description" name="description"></input>
+                      <label id="descriptionDErrorNum" style="display:none; color:red">Description must be under 16 characters</label>
+                      <label id="descriptionDErrorEmpty" style="display:none; color:red">Description is empty</label>
                     <input type="input" placeholder="Adoption Fee" name="fee"></input>
+                      <label id="feeDErrorNum" style="display:none; color:red">Fee must be under 16 characters</label>
+                      <label id="feeDErrorEmpty" style="display:none; color:red">Fee is empty</label>
                     <select name="gender">
                         <option selected="selected" disabled="disabled" value="Choose here">Choose here</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                     </select>
+                      <label id="genderDErrorEmpty" style="display:none;color:red">Please select a gender</label>
                     <input type="input" placeholder="Age" name="age"></input>
-                    <input type="file" name="image">
+                      <label id="ageDErrorNum" style="display:none; color:red">Age must be under 16 characters</label>
+                      <label id="ageDErrorEmpty" style="display:none; color:red">Age is empty</label>
+                    <input type="file" accept="image/*" name="image">
             </div>
             <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-default"></input>
@@ -286,6 +298,77 @@ function checkname()
   });
  }
 }
+function validateDog() {
+    var name = document.forms["formDog"]["name"].value;
+    var description = document.forms["formDog"]["description"].value;
+    var fee = document.forms["formDog"]["fee"].value;
+    var age = document.forms["formDog"]["age"].value;
+    var gender = document.forms["formDog"]["gender"].value;
+    var breed = document.forms["formDog"]["breed"].value;
+    var size = document.forms["formDog"]["size"].value;
+    var file = document.forms["formDog"]["image"].value;
+    var returnView = 0;
+    if (name == "" || name.length > 16) {
+      if (name.length > 16){
+
+        $("#nameDErrorNum").show();
+        returnView++;
+      }
+      else if (name == "") {
+        $("#nameDErrorEmpty").show();
+        returnView++;
+      }
+    }
+    if (description == "" || description.length > 110) {
+      if (description.length > 110){
+        $("descriptionDErrorNum").show();
+        returnView++;
+      }
+      else if (description == "") {
+        $("#descriptionDErrorEmpty").show();
+        returnView++;
+      }
+    }
+    if (fee == "" || isNaN(fee)) {
+      if (isNaN(fee)){
+        $("feeDErrorNum").show();
+        returnView++;
+      }
+      else if (fee == "") {
+        $("#feeDErrorEmpty").show();
+        returnView++;
+      }
+    }
+    if (age == "" || isNaN(age)) {
+      if (isNaN(age)){
+        $("ageDErrorNum").show();
+        returnView++;
+      }
+      else if (age == "") {
+        $("#ageDErrorEmpty").show();
+        returnView++;
+      }
+    }
+    if (gender == "Choose here") {
+        $("#genderDErrorEmpty").show();
+        returnView++;
+    }
+    if (breed == "Choose here") {
+        $("#breedErrorEmpty").show();
+        returnView++;
+    }
+    if (size == "Choose here") {
+        $("#sizeErrorEmpty").show();
+        returnView++;
+    }
+    if(returnView == 0)
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+}
 function validateCat() {
     var name = document.forms["formCat"]["name"].value;
     var description = document.forms["formCat"]["description"].value;
@@ -297,46 +380,46 @@ function validateCat() {
     if (name == "" || name.length > 16) {
       if (name.length > 16){
 
-        $("#nameErrorNum").toggle();
+        $("#nameErrorNum").show();
         returnView++;
       }
       else if (name == "") {
-        $("#nameErrorEmpty").toggle();
+        $("#nameErrorEmpty").show();
         returnView++;
       }
     }
     if (description == "" || description.length > 110) {
       if (description.length > 110){
-        $("descriptionErrorNum").toggle();
+        $("descriptionErrorNum").show();
         returnView++;
       }
       else if (description == "") {
-        $("#descriptionErrorEmpty").toggle();
+        $("#descriptionErrorEmpty").show();
         returnView++;
       }
     }
     if (fee == "" || isNaN(fee)) {
       if (isNaN(fee)){
-        $("feeErrorNum").toggle();
+        $("feeErrorNum").show();
         returnView++;
       }
       else if (fee == "") {
-        $("#feeErrorEmpty").toggle();
+        $("#feeErrorEmpty").show();
         returnView++;
       }
     }
     if (age == "" || isNaN(age)) {
       if (isNaN(age)){
-        $("ageErrorNum").toggle();
+        $("ageErrorNum").show();
         returnView++;
       }
       else if (age == "") {
-        $("#ageErrorEmpty").toggle();
+        $("#ageErrorEmpty").show();
         returnView++;
       }
     }
     if (gender == "Choose here") {
-        $("#genderErrorEmpty").toggle();
+        $("#genderErrorEmpty").show();
         returnView++;
     }
     if(returnView == 0)

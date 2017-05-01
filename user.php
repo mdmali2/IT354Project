@@ -7,16 +7,9 @@
   if (isset($_GET['view'])) $view = sanitizeString($_GET['view']);
   else $view = $user;
 
-<<<<<<< HEAD
-
-if(isset($_GET['type']))
-{
-  if (($_GET['type']) == 'cat')
-=======
   if(isset($_GET['type']))
   {
   if(($_GET['type']) == 'cat')
->>>>>>> 875d47f9b329b3a35a3e103e6b6e616ed0e63640
   {
         $catDeclawed = sanitizeString($_GET['catDeclawed']);
         $catAge1 = sanitizeString($_GET['catAge1']);
@@ -83,14 +76,9 @@ if(isset($_GET['type']))
         }
     }
   }
-<<<<<<< HEAD
-    else {
-      $catResult = queryMysql("SELECT * FROM catDB");
-=======
     else{
       $catResult = queryMysql("SELECT * FROM catDB");
       $dogResult = queryMysql("SELECT * FROM dogDB");
->>>>>>> 875d47f9b329b3a35a3e103e6b6e616ed0e63640
       while($row = mysqli_fetch_array($catResult))
       {
         echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
@@ -112,8 +100,6 @@ if(isset($_GET['type']))
         echo "</div>";
         echo '</div>';
       }
-<<<<<<< HEAD
-=======
       while($row = mysqli_fetch_array($dogResult))
       {
         echo '<div style="padding-bottom: 20px;" class="col-sm-6 col-md-4 col-lg-4">';
@@ -129,8 +115,6 @@ if(isset($_GET['type']))
         echo "</div>";
         echo '</div>';
       }
-
->>>>>>> 875d47f9b329b3a35a3e103e6b6e616ed0e63640
     }
 
     die("</div></body></html>");
