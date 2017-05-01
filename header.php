@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand active" href="<script type='text/javascript'>window.top.location='administrator.php?view=$user';</script>">Adopt Me</a>
+            <a class="navbar-brand active" href="index.php">Adopt Me</a>
             <a class="navbar-brand" href="#choice" data-toggle="modal">Upload Pet</a>
             <a class="navbar-brand" href="#createAdmin" data-toggle="modal">Add Volunteer</a>
         </div>
