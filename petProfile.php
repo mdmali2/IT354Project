@@ -81,14 +81,21 @@
               </div>
             </div>
                  <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                          <?php if ($loggedin and $admin==0 ) : ?>
-                              <a href="favorite.php?type='dog'" style="min-width:100%;" class="btn btn-main">Favorite</a>
-                          <?php elseif ($loggedin and $admin==1 ): ?>
-                              <a href="administrator.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <?php endif; ?>
-                        </span>
+                        <?php if ($loggedin and $admin==0 ) : ?>
+                          <?php
+                            $id = $_GET['id'];
+                            $result = queryMysql("SELECT * FROM favoritedb where userID = '" .$user . "'and petID = '" . $id . "' and type = 'dog'");
+                            if(mysqli_fetch_array($result) == 0)
+                            {
+                              echo "<a href='favorite.php?user=" . $user . "&petID=" . $id . "&type=dog'  style='min-width:100%;' class='btn btn-main'>Favorite</a>";
+                            }
+                            else {
+                              echo "<a href='favorite.php?user=" . $user . "&petID=" . $id . "&type=dog'  style='min-width:100%; background-color:red' class='btn btn-main'>Unfavorite</a>";
+                            }
+                          ?>
+                      <?php elseif ($loggedin and $admin==1 ): ?>
+
+                          <?php endif; ?>
                     </div>
 
           </div>
@@ -158,15 +165,23 @@
                       </div>
                     </div>
                          <div class="panel-footer">
-                                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                                <span class="pull-right">
+
                                   <?php if ($loggedin and $admin==0 ) : ?>
-                                    <?php $id = $_GET['id']; ?>
-                                  <?php  echo "<a href='favorite.php?user=" . $user . "&petID=" . $id . "&type=cat'  style='min-width:100%;' class='btn btn-main'>Favorite</a>" ?>
+                                    <?php
+                                      $id = $_GET['id'];
+                                      $result = queryMysql("SELECT * FROM favoritedb where userID = '" .$user . "'and petID = '" . $id . "' and type = 'cat'");
+                                      if(mysqli_fetch_array($result) == 0)
+                                      {
+                                        echo "<a href='favorite.php?user=" . $user . "&petID=" . $id . "&type=cat'  style='min-width:100%;' class='btn btn-main'>Favorite</a>";
+                                      }
+                                      else {
+                                        echo "<a href='favorite.php?user=" . $user . "&petID=" . $id . "&type=cat'  style='min-width:100%; background-color:red' class='btn btn-main'>Unfavorite</a>";
+                                      }
+                                    ?>
                                 <?php elseif ($loggedin and $admin==1 ): ?>
-                                      <a href="administrator.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+
                                     <?php endif; ?>
-                                </span>
+
                             </div>
 
                   </div>
