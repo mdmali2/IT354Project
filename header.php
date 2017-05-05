@@ -50,8 +50,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="./">Profile <span class="sr-only">(current)</span></a>
-                </li>
+
+
                 <li><a href="logout.php">Sign out</a>
                 </li>
             </ul>
@@ -207,6 +207,7 @@
                         <option value="Border Collie">Border Collie</option>
                         <option value="German Shepherd">German Shepherd</option>
                         <option value="Skye Terrier">Skye Terrier</option>
+                        <option value="Mix">Mix</option>
                     </select>
                     <label id="breedErrorEmpty" style="display:none;color:red">Please select a breed</label>
                     <select name="size">

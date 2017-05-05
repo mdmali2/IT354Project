@@ -32,10 +32,10 @@
       echo "<img class='resize' src='images/" . $row['image'] . "' >";
       if($row['declawed'] == "yes")
       {
-        echo "<div class='overlay'><label class='fa fa-check fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+        echo "<div class='overlay'><label class='fa fa-check fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></br></br><label class='fa fa-paw fa-2x text'> " . $row['description'] . "</label></div>";
       }
       else {
-        echo "<div class='overlay'><label class='fa fa-times fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+        echo "<div class='overlay'><label class='fa fa-times fa-2x text'> Declawed </label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></br></br><label class='fa fa-paw fa-2x text'> " . $row['description'] . "</label></div>";
       }
       echo "</div>";
       echo "<figcaption>" . $row['name'] . "</figcaption><a href='delete.php?id=". $row['id']."&animalType=cat' class='fa fa-minus-circle fa-2x'></a>";
@@ -52,7 +52,7 @@
     echo "<a href='petProfile.php?id=" . $row['id'] . "&type=dog&image=" . $row['image'] . "&name=" . $row['name'] . "&breed=" . $row['breed'] . "&shelter=" . $row['shelter'] . "&description=" . $row['description'] .
            "&fee=" . $row['fee']  . "&gender=" . $row['gender'] . "&age=" . $row['age'] . "'><div class='img-overlay'>";
     echo "<img class='resize' src='images/" . $row['image'] . "' >";
-    echo "<div class='overlay'><label class='fa fa-paw fa-2x text'> " . $row['breed'] . "</label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></div>";
+    echo "<div class='overlay'><label class='fa fa-paw fa-2x text'> " . $row['breed'] . "</label></br></br><label class='fa fa-usd fa-2x text'> " . $row['fee'] . "</label></br></br><label class='fa fa-paw fa-2x text'> " . $row['description'] . "</label></div>";
     echo "</div>";
     echo "<figcaption>" . $row['name'] . " </figcaption><a href='delete.php?id=". $row['id']."&animalType=dog' class='fa fa-minus-circle fa-2x'></a>";
     echo "</figure>";
